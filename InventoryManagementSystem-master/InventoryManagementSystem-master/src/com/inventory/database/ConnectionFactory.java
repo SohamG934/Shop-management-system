@@ -10,7 +10,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author ADMIN
@@ -21,15 +20,11 @@ public class ConnectionFactory {
     Statement stmt = null;
     ResultSet rs = null;
     
-    public ConnectionFactory(){
+     public ConnectionFactory(){
         try{
-            //Class.forName("com.oracle.cj.jdbc.Driver");
-            //con=DriverManager.getConnection("jdbc:oracle://localhost/1521user=scott&password=admin");
-            //stmt=con.createStatement();
-        con=DriverManager.getConnection("jdbc:oracle:thin:@LAPTOP-CR6FLS09:1521:orcl", "scott", "admin");
-        System.out.println(" Database connected");
-        stmt=con.createStatement();
-            
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con=DriverManager.getConnection("jdbc:mysql://localhost/ims?user=root&password=root");
+            stmt=con.createStatement();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -37,22 +32,8 @@ public class ConnectionFactory {
     
     public Connection getConnection(){
         try{
-          //  Class.forName("com.oracle.cj.jdbc.Driver");
-           // con=DriverManager.getConnection("jdbc:oracle://localhost/1521user=scott&password=admin");
-        Connection conn;
-        Statement stmt1;
-        ResultSet rs1;
-        //load the driver
-        System.out.println(" Registering Driver........");
-        DriverManager.registerDriver(new oracle.jdbc.driver.OracleDriver());
-        System.out.println(" Driver registered");
-        
-        
-        //connect to database
-        System.out.println(" Connecting Database ");
-        conn=DriverManager.getConnection("jdbc:oracle:thin:@LAPTOP-CR6FLS09:1521:orcl", "scott", "admin");
-        System.out.println(" Database connected");
-        stmt=conn.createStatement();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con=DriverManager.getConnection("jdbc:mysql://localhost/ims?user=root&password=root");
         }catch(Exception e){
             e.printStackTrace();
         }
